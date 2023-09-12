@@ -262,6 +262,7 @@ textarea {
       margin-bottom: 3rem; }
       @media only screen and (max-width: 37.5em) {
         .about__content-title {
+          text-align: center;
           font-size: 2.4rem; } }
     .about__content-details-para {
       font-size: 1.8rem;
@@ -399,8 +400,9 @@ textarea {
     padding: 2rem 4rem;
     font-size: 1.6rem; }
     @media only screen and (max-width: 37.5em) {
-      .contact__btn {
-        width: 100%; } }
+      .contact__btn,.contact__btn1 {
+        text-align: center;
+    width: 100%; } }
 
 .project-cs-hero {
   color: #fff;
@@ -740,7 +742,47 @@ textarea {
   .right-button{
     margin-right:20px;
   }
+
+  
   #certificate{
     width: 80% !important;
     margin-left: 150px;
   }
+  @media only screen and (max-width: 56.25em){
+
+    #certificate{
+      width: 80% !important;
+      margin-left:40px;
+    }
+    .image-container {
+      position: relative;
+      display: inline-block;
+  }
+
+  .projects__row-img{
+      width: 100%;
+      height: auto;
+      display: block;
+  }
+   .over-img {
+    width: 70%;
+    height: 72%;
+    display: block;
+    margin-top: 22px;
+    margin-bottom: 1px;
+    margin-left: 53px;
+    margin-right: 2px;
+}
+
+
+
+  .over-img {
+      position: absolute;
+      top: 0;
+      
+  }
+
+
+
+  }
+ 
