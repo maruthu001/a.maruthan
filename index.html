@@ -368,7 +368,7 @@
           </span>
         </h2>
         <div class="contact__form-container">
-          <form action="#" class="contact__form">
+          <form  id="contact_form" class="contact__form">
             <div class="contact__form-field">
               <label class="contact__form-label" for="name">Name</label>
               <input
@@ -387,7 +387,6 @@
               <label class="contact__form-label" for="email">Email</label>
               <input
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                
                 placeholder="Enter Your Email"
                 type="text"
                 class="contact__form-input"
@@ -399,19 +398,19 @@
             <div class="contact__form-field">
               <label class="contact__form-label" for="message">Message</label>
               <textarea
-                required
-                minlength="10"
+                
+                minlength="5"
                 maxlength="250"
-
                 cols="30"
                 rows="10"
                 class="contact__form-input"
                 placeholder="Enter Your Message"
                 name="message"
                 id="message"
+                required
               ></textarea>
             </div>
-            <button type="submit" onsubmit="SendMail()"  class="btn btn--theme contact__btn">
+            <button type="button" id="submit"  class="btn btn--theme contact__btn">
               Submit
             </button>
           </form>
@@ -472,15 +471,35 @@
 
     <script src="./index.js"></script>
     <script>
-      function SendMail() {
+      document.getElementById("submit").addEventListener("click", SendMail); 
+      function SendMail(event) {
+        var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var message = document.getElementById("message").value;
+
+  if (name.length < 2 || name.length > 100) {
+    alert("Name must be between 2 and 100 characters.");
+    return ;
+  }else if (!email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i)) {
+    alert("Invalid email address.");
+    return ;
+  }else if (message.length < 5 || message.length > 250) {
+    alert("Message must be between 5 and 250 characters.");
+    return ;
+  }else{
           var params = {
-          from_name : document.getElementById("name").value,
-          email : document.getElementById("email").value,
-          message : document.getElementById("message").value
+          from_name :name,
+          email : email,
+          message : message
       }
       emailjs.send("service_58lyzsw", "template_ksf7w2k", params).then(function (res) {
-      alert("Successfull collected the details. we will get you soon ! " + res.status);
+      alert("Thank You "+document.getElementById("name").value+" Successfully collected your details. we will get you soon ! " + res.status+" :)");
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("message").value = "";
       })
+      
+    }
   }
     </script>
     
