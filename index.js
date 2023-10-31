@@ -36,3 +36,14 @@ const headerLogoConatiner = document.querySelector('.header__logo-container')
 headerLogoConatiner.addEventListener('click', () => {
   location.href = 'index.html'
 })
+
+const lin_btn = document.getElementById("live_link");
+
+lin_btn.addEventListener('mouseover', (e) => {
+  console.log("in");
+  lin_btn.innerText = "Coming Soon...!"
+});
+lin_btn.addEventListener('mouseleave', () => {
+  console.log("out");
+  lin_btn.innerText = "LIVE LINK"
+});

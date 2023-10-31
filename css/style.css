@@ -49,6 +49,12 @@ a {
 li {
   list-style: none; }
 
+  #live_link:hover{
+      background-color: #dad6d6;
+      cursor:not-allowed;
+      font-size: 15px;
+
+  }
 input:focus,
 button:focus,
 a:focus,
